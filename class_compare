@@ -1,0 +1,53 @@
+class student{
+
+public:
+    int id;
+    string name;
+
+    void p(){
+
+        cout<<name<<" "<<id<<endl;
+
+    }
+
+//    bool operator <(student& const other) const{
+//
+//        return this->id<other.id;
+//    }
+
+
+    bool
+      operator<(const student& x) const
+      { return this->name < x.name; }
+
+
+};
+
+
+void p10(){
+
+int n;
+cin>>n;
+
+vi a(n);
+
+//arin(a,0,n);
+
+set<student>ss;
+
+
+//ss.insert({,name});
+
+for(int i=0;i<n;i++){
+
+    int id;
+    string name;
+    cin>>id>>name;
+    ss.insert({id,name});
+}
+
+for(auto el:ss){
+
+    el.p();
+
+}
