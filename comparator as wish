@@ -1,0 +1,49 @@
+
+struct ob{
+
+    string name;
+    int score;
+
+
+
+
+
+
+};
+
+bool cmp(ob a,ob b){
+
+
+    return a.score>b.score;
+}
+
+void z1(){
+
+
+    int n;
+    cin>>n;
+    vector<ob>vp(n);
+
+    for(int i=0;i<n;i++){
+
+        string n;
+        int sc;
+        cin>>n;
+        cin>>sc;
+        vp[i].name=n;
+        vp[i].score=sc;
+
+    }
+
+    sort(vp.begin(),vp.end(),cmp);
+
+    for(auto el:vp){
+
+        cout<<el.name<<" "<<el.score<<endl;
+
+    }
+
+
+}
+
+
