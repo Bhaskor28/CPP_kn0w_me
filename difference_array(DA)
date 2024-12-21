@@ -1,0 +1,41 @@
+
+void s2(){
+
+
+int n,q;
+cin>>n>>q;
+vi a(n+1,0);
+
+
+arin(a,1,n+1);
+
+
+vi vp(a.size()+1,0);
+
+
+while(q--){
+
+    int l,r,v;
+    cin>>l>>r>>v;
+
+    vp[l]+=v;
+    vp[r+1]-=v;
+
+}
+
+forn(i,1,n+2){
+
+vp[i]+=vp[i-1];
+
+}
+pn(vp,n+2);
+
+
+forn(i,1,n+1){
+
+a[i]+=vp[i];
+
+}
+pn(a,n+1);
+
+}
