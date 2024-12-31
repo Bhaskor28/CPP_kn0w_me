@@ -1,0 +1,18 @@
+void dfs(int s,vector<vector<int>>&g,vector<bool>&vis){
+//cout<<s<<" ";// pre order traversal
+
+vis[s]=true;
+
+    for(int i=0;i<g[s].size();i++){
+
+        if(vis[g[s][i]]==false){
+            //cout<<g[s][i]<<" ";
+            dfs(g[s][i],g,vis);
+        }
+
+    }
+
+    //vis[s]=true;
+cout<<s<<" ";// postorder traversal
+
+}
