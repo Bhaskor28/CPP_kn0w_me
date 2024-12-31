@@ -1,0 +1,52 @@
+void df2(int node,vector<vector<int>>&g,vector<int>&vis){
+
+vis[node]=1;
+
+for(int i=0;i<g[node].size();i++){
+
+    if(vis[g[node][i]]==-1){
+
+        df2(g[node][i],g,vis);
+    }
+
+}
+
+
+}
+
+
+void s3(){
+
+int n;
+cin>>n;
+int edge;
+cin>>edge;
+vector<vector<int>>g(n+1);
+while(edge--){
+
+    int f,t;
+    cin>>f>>t;
+
+    g[f].pb(t);
+
+    g[t].pb(f);
+
+
+
+}
+
+pngraph(n,g);
+int cnt=0;
+vector<int>vis(n+1,-1);
+for(int i=1;i<=n;i++){
+
+    if(vis[i]==-1){
+            cnt++;
+        df2(i,g,vis);
+
+    }
+}
+
+cout<<cnt<<endl;
+
+}
