@@ -1,0 +1,52 @@
+
+int tsum(vi &a,int x,int idx,set<vector<int>>&st,vi current){
+
+
+if(x==0){
+    st.insert(current);
+    return 1;
+}
+
+
+if(idx>=a.size() || x<0){
+
+    return 0;
+}
+
+current.pb(a[idx]);
+int inc=tsum(a,x-a[idx],idx+1,st,current);
+current.pop_back();
+int ex=tsum(a,x,idx+1,st,current);
+return inc+ex;
+
+
+
+}
+
+
+void p1(){
+
+
+int n,x;
+cin>>n>>x;
+vi a(n);
+
+arin(a,0,n);
+
+set<vi>st;
+vi current;
+cout<<tsum(a,x,0,st,current)<<endl;
+
+for(auto el:st){
+
+    for(int x:el){
+
+        cout<<x<<" ";
+    }
+    cout<<endl;
+
+
+}
+
+
+}
