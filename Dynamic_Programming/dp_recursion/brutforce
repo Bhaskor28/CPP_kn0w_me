@@ -1,1 +1,44 @@
 
+int tsum(vi &a,int x,int idx){
+
+
+if(x==0){
+
+    return true;
+}
+
+
+if(idx>=a.size() || x<0){
+
+    return false;
+}
+
+
+return tsum(a,x-a[idx],idx+1) || tsum(a,x,idx+1);
+
+
+}
+
+
+void p1(){
+
+
+int n,x;
+cin>>n>>x;
+vi a(n);
+
+arin(a,0,n);
+
+
+if(tsum(a,x,0)){
+
+
+    cout<<"we got "<<endl;
+}
+else{
+
+    cout<<"we never got this "<<endl;
+}
+
+
+}
