@@ -1,0 +1,35 @@
+void rodcut(){
+
+int n,p;
+
+cin>>n;
+
+vi a(n+1,0);
+
+arin(a,1,n+1);
+
+vector<vector<int>>dp(n+1,vector<int>(n+1,0));
+
+
+for(int i=1;i<=n;i++){
+
+
+    for(int j=1;j<=n;j++){
+        dp[i][j]=dp[i-1][j];
+
+        if(j>=i){
+
+            dp[i][j]=max(a[i]+dp[i][j-i],dp[i-1][j]);
+        }
+
+
+
+    }
+
+
+}
+cout<<dp[n][n]<<endl;
+
+
+
+}
