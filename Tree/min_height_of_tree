@@ -1,0 +1,28 @@
+class Solution {
+public:
+
+    int mn(TreeNode* root){
+        if(root==NULL)
+            return 0;
+        if(root->left==NULL && root->right==NULL){
+            return 1;
+        }
+        int l=INT_MAX,r=INT_MAX;
+        if(root->left!=NULL){
+            l=1+mn(root->left);
+        }
+        if(root->right!=NULL){
+
+            r=1+mn(root->right);
+        }
+
+        return min(l,r);
+        
+    }
+
+    int minDepth(TreeNode* root) {
+        
+
+        return mn(root);
+    }
+};
