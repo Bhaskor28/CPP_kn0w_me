@@ -1,0 +1,41 @@
+class Solution {
+public:
+    vector<int>an1,an2;
+    void inorder(TreeNode* p,vector<int>&v1){
+
+        
+
+        if(p==NULL){
+            v1.push_back(-1e6);
+            return ;
+
+        }
+
+        v1.push_back(p->val);
+        inorder(p->left,v1);
+        inorder(p->right,v1);
+
+        
+
+
+    }
+
+    bool isSameTree(TreeNode* p, TreeNode* q) {
+
+
+        vector<int>v1,v2;
+        inorder(p,v1);
+        inorder(q,v2);
+
+
+        if(v1==v2){
+
+            return true;
+        }
+        else{
+
+            return false;
+        }
+        
+    }
+};
