@@ -1,16 +1,3 @@
-void show(node* root){
-
-
-    if(root==NULL)
-        return ;
-    //cout<<root->data<<" "; this is for inorder
-    show(root->left);
-    cout<<root->data<<" ";
-    show(root->right);
-    //cout<<root->data<<" ";this is for post order
-
-}
-
 void levelorder(node* root){
 
     queue<node*>q;
@@ -23,7 +10,8 @@ void levelorder(node* root){
     //node* tem=root;
 
     vector<int>cur;
-    for(int i=0;q.size();i++){
+    int l=q.size();
+    for(int i=0;i<l;i++){
 
         node* tem=q.front();
         q.pop();
@@ -42,21 +30,14 @@ void levelorder(node* root){
     }
 
 
-    pngraph(ans.size(),ans);
-
-}
+    for(auto el:ans){
 
 
+        for(auto ec:el){
 
-void s2(){
-
-node* root=NULL;
-
-root=build(root);
-
-//show(root);
-
-levelorder(root);
-
+            cout<<ec<<" ";
+        }
+        cout<<endl;
+    }
 
 }
