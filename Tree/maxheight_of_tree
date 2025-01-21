@@ -1,0 +1,116 @@
+struct node{
+
+    int data;
+    node* left;
+    node* right;
+
+    node(int val){
+    data=val;
+
+    left=NULL;
+    right=NULL;
+    }
+
+
+
+};
+//building the whole procedure as mine
+
+node* build(node* root){
+
+    int da;
+    cout<<"Enter data "<<endl;
+
+    cin>>da;
+
+    if(da==-1){
+
+        return NULL;
+    }
+    root=new node(da);
+    cout<<"inserting in the left of "<<root->data<<endl;
+    root->left=build(root->left);
+    cout<<"inserting in the right of "<<root->data<<endl;
+    root->right=build(root->right);
+    return root;
+}
+
+
+void show(node* root){
+
+
+    if(root==NULL)
+        return ;
+    //cout<<root->data<<" "; this is for inorder
+    show(root->left);
+    cout<<root->data<<" ";
+    show(root->right);
+    //cout<<root->data<<" ";this is for post order
+
+}
+
+void levelorder(node* root){
+
+    queue<node*>q;
+    if(root==NULL)
+        return ;
+    q.push(root);
+    vector<vector<int>>ans;
+    while(!q.empty()){
+
+    //node* tem=root;
+
+    vector<int>cur;
+    for(int i=0;q.size();i++){
+
+        node* tem=q.front();
+        q.pop();
+
+        if(tem->left!=NULL)q.push(tem->left);
+        if(tem->right!=NULL)q.push(tem->right);
+        cur.pb(tem->data);
+
+    }
+
+
+        ans.pb(cur);
+
+
+
+    }
+
+
+    pngraph(ans.size(),ans);
+
+}
+
+
+int mxheight(node* root){
+
+if(root==NULL)
+    return 0;
+
+int l=1+mxheight(root->left);
+int r=1+mxheight(root->right);
+
+
+
+return max(l,r);
+}
+
+
+
+void s2(){
+
+node* root=NULL;
+
+root=build(root);
+
+//show(root);
+
+levelorder(root);
+
+cout<<mxheight(root)<<endl;
+
+
+}
