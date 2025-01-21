@@ -1,0 +1,42 @@
+struct node{
+
+int data;
+node *left;
+node *right;
+
+node(int val){
+
+    data=val;
+    left=right=NULL;
+}
+
+
+
+};
+
+
+void show(node *root){
+
+    if(root==NULL){
+
+        return ;
+    }
+
+    //cout<<root->data<<endl;
+
+    show(root->left);
+    cout<<root->data<<endl;
+    show(root->right);
+
+}
+
+void s1(){
+
+    node *root=new node(1);
+    root->left=new node(2);
+    root->right=new node(3);
+
+    show(root);
+
+
+}
