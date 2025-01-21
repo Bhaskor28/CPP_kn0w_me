@@ -1,0 +1,61 @@
+struct node{
+
+    int data;
+    node* left;
+    node* right;
+
+    node(int val){
+    data=val;
+
+    left=NULL;
+    right=NULL;
+    }
+
+
+
+};
+//building the whole procedure as mine
+
+node* build(node* root){
+
+    int da;
+    cout<<"Enter data "<<endl;
+
+    cin>>da;
+
+    if(da==-1){
+
+        return NULL;
+    }
+    root=new node(da);
+    cout<<"inserting in the left of "<<root->data<<endl;
+    root->left=build(root->left);
+    cout<<"inserting in the right of "<<root->data<<endl;
+    root->right=build(root->right);
+}
+
+
+void show(node* root){
+
+
+    if(root==NULL)
+        return ;
+    //cout<<root->data<<" "; this is for inorder
+    show(root->left);
+    cout<<root->data<<" ";
+    show(root->right);
+    //cout<<root->data<<" ";this is for post order
+
+}
+
+
+void s2(){
+
+node* root=NULL;
+
+root=build(root);
+
+show(root);
+
+
+}
