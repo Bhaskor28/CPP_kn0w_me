@@ -1,0 +1,52 @@
+void s1(){
+
+int n;
+cin>>n;
+
+vi a(n);
+
+//arin(a,0,n);
+
+vi bits(35,0);
+ll sum=0;
+for(int i=0;i<n;i++){
+
+    cin>>a[i];
+
+    for(int j=0;(1LL<<j)<=a[i];j++){
+
+        if((1LL<<j) & a[i]){
+
+            bits[j]++;
+        }
+
+    }
+    sum+=a[i];
+
+
+
+}
+ll ans=0;
+for(int i=0;i<n;i++){
+
+    ll tem=sum;
+    for(int j=0;(1<<j)<=a[i];j++){
+
+        if((1<<j) & a[i]){
+            tem+=(n-bits[j])*(1LL<<j);
+            tem-=bits[j]*(1LL<<j);
+        }
+
+    }
+
+    ans=max(tem,ans);
+
+}
+
+
+cout<<ans<<endl;
+
+
+
+
+}
